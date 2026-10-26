@@ -176,22 +176,6 @@ profileDialog?.addEventListener("click", (event) => {
   if (!cvLink || !overlay) return;
 
   let activeDownload = false;
-  let sessionDownloadCount = 0;
-  const storageKey = 'dwight-cv-download-count';
-
-  function nextFilename() {
-    let count = sessionDownloadCount;
-    try {
-      count = Number.parseInt(localStorage.getItem(storageKey) || '0', 10) || 0;
-    } catch (_) {}
-    const nextCount = count + 1;
-    sessionDownloadCount = nextCount;
-    try { localStorage.setItem(storageKey, String(nextCount)); } catch (_) {}
-
-    const base = (cvLink.getAttribute('download') || 'PamintuanDwight_CV.pdf')
-      .replace(/\.pdf$/i, '');
-    return nextCount === 1 ? `${base}.pdf` : `${base} (${nextCount - 1}).pdf`;
-  }
 
   cvLink.addEventListener('click', async (event) => {
     event.preventDefault();
@@ -224,7 +208,7 @@ profileDialog?.addEventListener("click", (event) => {
       const objectUrl = URL.createObjectURL(blob);
       const downloadAnchor = document.createElement('a');
       downloadAnchor.href = objectUrl;
-      downloadAnchor.download = nextFilename();
+      downloadAnchor.download = cvLink.getAttribute('download') || 'PamintuanDwight_CV.pdf';
       downloadAnchor.style.position = 'fixed';
       downloadAnchor.style.left = '-9999px';
       document.body.appendChild(downloadAnchor);
