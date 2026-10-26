@@ -11,6 +11,34 @@
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
   <link href="style.css" rel="stylesheet"/>
+  <style id="project-grid-layout-fix">
+    /* Keep every project card in the same two-column grid. */
+    #projects .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+    #projects .project-grid > .project-card {
+      grid-column: auto !important;
+      grid-row: auto;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    #projects .project-grid > .project-card .project-image img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      #projects .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
   <script defer="" src="script.js">
   </script>
  </head>
