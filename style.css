@@ -811,12 +811,6 @@ button {
   font-size:14px;
   padding:4px 7px
 }
-.project-disclaimer {
-  font-size:11px;
-  color:#89938a;
-  line-height:1.8;
-  margin:22px 0 0
-}
 .working-grid {
   display:grid;
   grid-template-columns:.9fr 1.1fr;
