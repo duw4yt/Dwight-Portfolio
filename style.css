@@ -1259,6 +1259,22 @@ button {
   object-position: center;
 }
 
+.project-link {
+  padding:0;
+  border:0;
+  background:none;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer
+}
+.project-link span {
+  font-size:16px;
+  margin-left:8px
+}
+.project-link:hover {
+  color:#668d2b
+}
+
 @media (max-width: 600px) {
   .project-grid {
     grid-template-columns: 1fr;
